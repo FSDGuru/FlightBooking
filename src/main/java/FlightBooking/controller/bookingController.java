@@ -71,8 +71,11 @@ public class bookingController {
 
 			book_repo.save(booking);
 			/* return "Booking made with PNR:"+booking.getBooking_id(); */
-
+try{
 			return emailService.sendEmail(booking, mailId);
+	}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		return "Booking Already Made";
@@ -111,14 +114,20 @@ public class bookingController {
 
 		if (booking.checked_in == true) {
 			System.out.println("checked in");
-
+try{
 			return emailService.checkIn(dbResponse, mailId);
+	}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 		if (booking.booking_cancelled == true) {
 			booking.setChecked_in(false);
 			System.out.println("Booking Cancelled");
-
+try{
 			return emailService.bookingCancelled(dbResponse, mailId);
+	}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 		return dbResponse;
 
