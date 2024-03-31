@@ -1,4 +1,4 @@
 FROM openjdk
-COPY FlightBooking-0.0.1-SNAPSHOT.jar /FlightBooking.jar
-CMD ["java", "-jar", "/FlightBooking.jar"]
+COPY ./target/FlightBooking-0.0.1-SNAPSHOT.jar /FlightBooking-0.0.1-SNAPSHOT.jar
+CMD ["java", "-jar", "FlightBooking-0.0.1-SNAPSHOT.jar"]
 EXPOSE 8082
